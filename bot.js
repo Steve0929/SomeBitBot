@@ -19,11 +19,16 @@ stream.on('follow', twitGracias);
 function twitGracias(eventMsg){
   var nombre = eventMsg.source.name;
   var screenName = eventMsg.source.screen_name;
+  //var userId = eventMsg.source.user_id;
   var r = Math.floor(Math.random()*100);
 
   var twitiar = {
       status:"@"+screenName +" ¡Gracias por seguir a este Bot! Toma tu número aleatorio de la suerte: " +r
                 }
+
+      T.get('followers/ids', { screen_name: 'SomeBitBot' },  function (err, data, response) {
+            console.log(data)
+          })
 
       T.post('statuses/update', twitiar);
 };
@@ -35,13 +40,25 @@ function twitRespuesta(eventMsg){
   var screenName = eventMsg.source.screen_name;
   var botName = "SomeBitBot";
   var enviadoPor = eventMsg.user.screen_name;
-  var textoTweet = eventMsg.text;
+  var textTweet = eventMsg.text;
   var replyto = eventMsg.in_reply_to_screen_name;
+  var reply = eventMsg.id_str;
+  console.log(textTweet);
 
   if(replyto == botName){
 
+    if(textTweet.search(/jugo/i) != -1 ){
+      var jugos = ["manzana","naranja","fresa","mora","piña","zanahoria","lulo","mango","guayaba","limón","coco","maracuyá" ];
+      var r = Math.floor(Math.random()*12);
+      var respuesta = "@"+enviadoPor + " De " + jugos[r] +".";
+      //var twitiar = {status: respuesta, in_reply_to_status_id: reply}
+      T.post('statuses/update', {in_reply_to_status_id: reply, status: respuesta });
+    }
+
+    else{
     var twitiar = { status:"@"+enviadoPor +" Gracias por escribirme :) "  }
     T.post('statuses/update', twitiar);
+        }
 
                         }
 };
@@ -76,4 +93,5 @@ function hacerAlgo(err,data,response){
   for (var i = 0; i < tweets.length; i++) {
     console.log(tweets[i].text);
   }
+  console.log(tweets);
 };
