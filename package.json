@@ -11,7 +11,8 @@
   "dependencies" :{
     "socket.io" :"*",
     "twit"  :"*",
+    "aylien_textapi" :"*",
     "express" : "*"
-
+  
     }
 }
