@@ -1,15 +1,24 @@
 console.log("El bot ha iniciado");
 
-var Twit = require('twit')
+var Twit = require('twit');
 
 var T = new Twit({
-  consumer_key:         'qyCy6ompdKLXRk7Slb60eOUzu',
-  consumer_secret:      '97dHKPDghONgiSOiSCBvWXpVtjrLrbjbQqDa7Dwidu6VLJvuSU',
-  access_token:         '914990232822575104-tEIjkA268W0ZmITradNoE5TwCUV5OFo',
-  access_token_secret:  'VMCCYcKVW8uX7rC8GHlv5a0mMfaOOzrRhYlD1znHdnfoZ',
+  consumer_key:         'O4wETrfULyGSHsdpfbjDYTGyX',
+  consumer_secret:      'PkhUZqO7oBqjgLpbjlSFaVIFmIWhQvx8AkimQNrIgvmnFZVdXD',
+  access_token:         '914990232822575104-4aFpiKRo6mXcxT9hGds4bXY2bGxYIYR',
+  access_token_secret:  '5YjpnfeydkHenoroySJtDoFKbLa04OwBl81GN3EliLXMT',
 })
 
 var stream = T.stream('user');
+
+
+var AYLIENTextAPI = require('aylien_textapi');
+var textapi = new AYLIENTextAPI({
+  application_id: "beac3017",
+  application_key: "72071fda58e0aa9de1f1113a6cabf1b9"
+});
+
+
 
 
 //Cuando alguien siga al bot
@@ -33,6 +42,7 @@ function twitGracias(eventMsg){
       T.post('statuses/update', twitiar);
 };
 
+
 //Cuando alguien RESPONDA al bot
 stream.on('tweet', twitRespuesta);
 function twitRespuesta(eventMsg){
@@ -45,6 +55,7 @@ function twitRespuesta(eventMsg){
   var reply = eventMsg.id_str;
   console.log(textTweet);
 
+
   if(replyto == botName){
 
     if(textTweet.search(/jugo/i) != -1 ){
@@ -56,15 +67,82 @@ function twitRespuesta(eventMsg){
     }
 
     else{
+        function sentidoTw(){
+        textapi.sentiment({
+          'language' : 'auto',
+          'text': textTweet
+        }, function(error, response) {
+          if (error === null) {
+            console.log(response);
+
+            if(response.polarity == 'positive'){
+              // console.log("Este parece ser un tweet cargado de energía positiva ☑️ ");
+               if(lenguaje === 'español') {
+                  var twitiar = "¡Hola "+ "@"+enviadoPor + "! Mi opinión: Este parece ser un tweet cargado de energía positiva :)";
+                  }
+
+               else {
+                  var twitiar = "¡Hi "+ "@"+enviadoPor + "! My opinion: This seems to be a positive charged tweet :)";
+                  }
+
+                T.post('statuses/update', {in_reply_to_status_id: reply,  status: twitiar});
+                                               }
+
+            else if(response.polarity == 'negative'){
+                  // console.log("Este parece ser un tweet negativo");
+                  if(lenguaje == 'español') {
+                     var twitiar =  "¡Hola "+ "@"+enviadoPor + "! Mi opinión: Este parece ser un tweet negativo :(" ;
+                     }
+
+                  else {
+                   var twitiar = "¡Hi "+ "@"+enviadoPor + "! My opinion: This seems to be a negative tweet :(";
+                       }
+
+                   T.post('statuses/update', {in_reply_to_status_id: reply,  status: twitiar});
+                                                    }
+
+            else if(response.polarity == 'neutral'){
+                  //  console.log("Este parece ser un tweet neutral");
+                  if(lenguaje == 'español') {
+                     var twitiar =  "¡Hola "+ "@"+enviadoPor + "! Mi opinión: Este parece ser un tweet neutral." ;
+                    }
+
+                  else{
+                   var twitiar = "¡Hi "+ "@"+enviadoPor + "! My opinion: This seems to be a neutral tweet.";
+                      }
+
+                  T.post('statuses/update', {in_reply_to_status_id: reply,  status: twitiar });
+                                                    }
+
+                         }//fin response
+          }); // fin sentiment
+        }; // fin funcion sentidoTw
+
+        textapi.language({
+        text: textTweet
+        }, function(error, response) {
+           if (error === null) {
+           if(response.lang != 'en' ){lenguaje = 'español'}
+           else if(response.lang == 'en'){lenguaje = 'ingles'}
+           console.log(response);
+           console.log('EL LENGUAJE DETECTADO ES: '+lenguaje)
+           sentidoTw();
+                                }
+                         });
+
+
+         }
+
+/*    else{
     var twitiar = { status:"@"+enviadoPor +" Gracias por escribirme :) "  }
     T.post('statuses/update', twitiar);
-        }
+  } */
 
                         }
 };
 
 
-
+twitea();
 
 //Tweetear algo
 function twitea(){
@@ -81,17 +159,49 @@ T.post('statuses/update', twitiar);
 
 //Buscar y explorar tweets
 var parametros = {
-  q: 'attack on titan',
-  count: 5
-                };
+  q: 'attack on titan  ',
+  count: 15,
+  is:retweet = '',
+  has:mentions ='no'
+                 };
 
+//buscarOpinar();
+//setInterval(buscarOpinar , 1000*30);
+function buscarOpinar(){
 T.get('search/tweets', parametros, hacerAlgo);
+};
 
 function hacerAlgo(err,data,response){
+var tweets = data.statuses;
+var enviadoPor;
+var reply;
+var texto;
+var lenguaje;
+var check;
 
+for (var i = 0; i < tweets.length; i++) {
+     check = tweets[i].text.search("RT");
+     if(check  == -1){
+       enviadoPor = tweets[i].user.screen_name;
+       reply = tweets[i].id_str;
+       texto = tweets[i].text;
+       console.log(texto);
+       break;
+     }
+     else{
+       console.log("ciclando");
+     }
+}
+
+console.log(texto);
+
+
+/*
   var tweets = data.statuses;
   for (var i = 0; i < tweets.length; i++) {
-    console.log(tweets[i].text);
+    console.log("TEXTO:"+ tweets[i].text);
   }
-  console.log(tweets);
-};
+  //console.log(tweets);
+*/
+
+}; // fin funcion hacerAlgo
