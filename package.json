@@ -13,6 +13,7 @@
     "twit"  :"*",
     "xmlhttprequest"  :"*",
     "aylien_textapi" :"*",
+    "xml2js" :"*",
     "express" : "*"
   
     }
