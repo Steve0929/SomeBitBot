@@ -143,18 +143,110 @@ function twitRespuesta(eventMsg){
 
 
 twitea();
+twitAire();
+setInterval(twitAire , 1000*60*60);
+
+function twitAire(){
+var r = Math.floor(Math.random()*100);
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+var request = new XMLHttpRequest();
+request.open("GET", "https://stateair.net/dos/RSS/Bogota/Bogota-PM2.5.xml", false);
+request.send();
+
+var xml = request.responseXML;
+
+var https = require('https');
+var xml2js = require('xml2js');
+var parser = new xml2js.Parser({explicitArray : false});
+var parseString = require('xml2js').parseString;
+
+
+var fecha;
+var concentracion;
+var aqi;
+var desc;
+
+ var airData = '';
+ https.get('https://stateair.net/dos/RSS/Bogota/Bogota-PM2.5.xml', function(res) {
+     if (res.statusCode >= 200 && res.statusCode < 400) {
+       res.on('data', function(data_) { airData += data_.toString(); });
+       res.on('end', function() {
+        // console.log('data', airData);
+
+         parser.parseString(airData, function(err, result) {
+         // console.log('FINISHED', err, result);
+         //console.log(airData);
+         parser.parseString(airData, function (err, result) {
+           console.dir(result);
+          //  console.dir(result.rss.channel.item[23].Conc);
+          //  console.dir(result.rss.channel.item[23].AQI);
+          //  console.dir(result.rss.channel.item[23].title);
+        //    console.dir(result.rss.channel.item[23].Desc);
+
+            concentracion =  result.rss.channel.item[23].Conc;
+            aqi = result.rss.channel.item[23].AQI;
+            fecha = result.rss.channel.item[23].title;
+            desc = result.rss.channel.item[23].Desc;
+            finalmenteTwitiar();
+         });
+
+         });
+       });
+     }
+   });
+
+
+/*
+var items = xml.getElementsByTagName("item");
+var lastItem = items[23];
+var fecha = lastItem.childNodes[1];
+var pm = lastItem.childNodes[5];
+var concentracion = lastItem.childNodes[7];
+var aqi = lastItem.childNodes[11];
+var desc = lastItem.childNodes[13]; */
+
+function finalmenteTwitiar(){
+var estado;
+if(aqi<50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+}
+else if(aqi>50 && aqi<100){
+  estado= "Polución moderada. ⚠️" ;
+}
+
+else if(aqi>100){
+ estado = "Peligroso para la salud. ⛔️";
+}
+
+
+var twitiar = {
+    status:"Índice de calidad del aire en Bogotá: " +aqi+
+    ", concentración de partículas PM2,5 en el aire: "+concentracion+
+     "ug/m3. Estado: "+ estado
+      }
+console.log(twitiar);
+T.post('statuses/update', twitiar);
+                            };
+                 };
+
+
+
+
 
 //Tweetear algo
 function twitea(){
 var r = Math.floor(Math.random()*100);
 
 var twitiar = {
-    status:"¡Hola soy un Bot! Aquí un número aleatorio de la suerte: " +r
+    status:"¡Hola soy un Bot y me acabo de reiniciar! Aquí un número aleatorio de la suerte: " +r
               }
 
 T.post('statuses/update', twitiar);
 
                  };
+
+
 
 
 //Buscar y explorar tweets
@@ -205,3 +297,6 @@ console.log(texto);
 */
 
 }; // fin funcion hacerAlgo
+
+
+//https://api.openaq.org/v1/sources fuente
