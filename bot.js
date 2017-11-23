@@ -208,7 +208,7 @@ var desc = lastItem.childNodes[13]; */
 
 function finalmenteTwitiar(){
 var estado;
-if(aqi=<50){
+if(aqi<=50){
   estado= "Satisfactorio, sin riesgos. 🍃";
 }
 else if(aqi>50 && aqi<100){
