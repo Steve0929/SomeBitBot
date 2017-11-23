@@ -208,14 +208,14 @@ var desc = lastItem.childNodes[13]; */
 
 function finalmenteTwitiar(){
 var estado;
-if(aqi<50){
+if(aqi=<50){
   estado= "Satisfactorio, sin riesgos. 🍃";
 }
 else if(aqi>50 && aqi<100){
   estado= "Polución moderada. ⚠️" ;
 }
 
-else if(aqi>100){
+else if(aqi>=100){
  estado = "Peligroso para la salud. ⛔️";
 }
 
@@ -225,8 +225,10 @@ var twitiar = {
     ", concentración de partículas PM2,5 en el aire: "+concentracion+
      "ug/m3. Estado: "+ estado
       }
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
 console.log(twitiar);
 T.post('statuses/update', twitiar);
+            }
                             };
                  };
 
