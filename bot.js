@@ -1,4 +1,5 @@
 console.log("El bot ha iniciado");
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var Twit = require('twit');
 
