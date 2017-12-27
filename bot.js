@@ -1,5 +1,8 @@
 console.log("El bot ha iniciado");
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+var arr = ["@6237","@6229","@6239","@6231","@6240","@6235","@6230"];
+var aqis= [];
 
 var Twit = require('twit');
 
@@ -142,10 +145,438 @@ function twitRespuesta(eventMsg){
                         }
 };
 
-
 twitea();
-twitAire();
-setInterval(twitAire , 1000*60*60);
+airUsaquen();
+setInterval(airUsaquen, 1000*60*60);
+//twitAire();
+//setInterval(twitAire , 1000*60*60);
+
+
+
+function airUsaquen(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+
+//var theUrl = "/feed/:"+city+"/?token=:"+token;
+//Usaquen: @6237 El Observatorio Ambiental de Bogotá
+//Guaymaral: @6229
+//Suba: @6239
+//Las Ferias: @6231
+//Puente Aranda: @6240
+//Tunal: @6235
+//Kennedy: @6230
+//https://api.waqi.info/search/?token=5048f02cae0ff2a686c48322d1e4f364e43e3f7a&keyword=bogota
+//https://api.waqi.info/feed/@6230/?token=5048f02cae0ff2a686c48322d1e4f364e43e3f7a
+
+var temps= [];
+
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = arr[0];
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+
+
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en Usaquén, Bogotá es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+            setTimeout(airGuaymaral,60000*2);
+                      }
+
+                  }
+
+}
+
+function airGuaymaral(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+var temps= [];
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = arr[1];
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en Guaymaral es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+            setTimeout(airSuba,60000*2);
+                      }
+
+                  }
+
+}
+
+
+function airSuba(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+var temps= [];
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = arr[2];
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en Suba, Bogotá es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+            setTimeout(airFerias,60000*2);
+                      }
+
+                  }
+
+}
+
+function airFerias(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+var temps= [];
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = arr[3];
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en Las Ferias, Bogotá es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+            setTimeout(airPuente,60000*2);
+                      }
+
+                  }
+
+}
+
+
+function airPuente(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+var temps= [];
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = arr[4];
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en Puente Aranda, Bogotá es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+            setTimeout(airTunal,60000*2);
+                      }
+
+                  }
+
+}
+
+
+function airTunal(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+var temps= [];
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = arr[5];
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en El Tunal, Bogotá es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+            setTimeout(airKennedy,60000*2);
+                      }
+
+                  }
+
+}
+
+
+
+function airKennedy(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+var temps= [];
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = arr[5];
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en Kennedy, Bogotá es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+
+                      }
+
+                  }
+
+}
+
+
+
+
+
 
 function twitAire(){
 var r = Math.floor(Math.random()*100);
@@ -209,6 +640,7 @@ var desc = lastItem.childNodes[13]; */
 
 function finalmenteTwitiar(){
 var estado;
+
 if(aqi<=50){
   estado= "Satisfactorio, sin riesgos. 🍃";
 }
