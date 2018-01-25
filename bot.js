@@ -1,10 +1,11 @@
 console.log("El bot ha iniciado");
+var Twit = require('twit');
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var arr = ["@6237","@6229","@6239","@6231","@6240","@6235","@6230"];
 var aqis= [];
 
-var Twit = require('twit');
+
 
 var T = new Twit({
   consumer_key:         'O4wETrfULyGSHsdpfbjDYTGyX',
