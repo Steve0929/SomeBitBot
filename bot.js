@@ -1,5 +1,5 @@
 console.log("El bot ha iniciado");
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var arr = ["@6237","@6229","@6239","@6231","@6240","@6235","@6230"];
 var aqis= [];
