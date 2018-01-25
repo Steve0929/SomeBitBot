@@ -145,9 +145,7 @@ function twitRespuesta(eventMsg){
                         }
 };
 
-twitea();
-airUsaquen();
-setInterval(airUsaquen, 1000*60*60);
+
 //twitAire();
 //setInterval(twitAire , 1000*60*60);
 
@@ -574,7 +572,9 @@ if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
 }
 
 
-
+twitea();
+airUsaquen();
+setInterval(airUsaquen, 1000*60*60);
 
 
 
