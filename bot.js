@@ -1,5 +1,5 @@
 console.log("El bot ha iniciado");
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var arr = ["@6237","@6229","@6239","@6231","@6240","@6235","@6230"];
 var aqis= [];
@@ -9,8 +9,8 @@ var Twit = require('twit');
 var T = new Twit({
   consumer_key:         'O4wETrfULyGSHsdpfbjDYTGyX',
   consumer_secret:      'PkhUZqO7oBqjgLpbjlSFaVIFmIWhQvx8AkimQNrIgvmnFZVdXD',
-  access_token:         '914990232822575104-4aFpiKRo6mXcxT9hGds4bXY2bGxYIYR',
-  access_token_secret:  '5YjpnfeydkHenoroySJtDoFKbLa04OwBl81GN3EliLXMT',
+  access_token:         '914990232822575104-JGhiqigWQVbnMezPQzFgp0G9JnGFYNU',
+  access_token_secret:  'nM08vjidNezjX1mVVcuyznrsdGAIqmtSR6nbSqanpkjTZ',
 })
 
 var stream = T.stream('user');
