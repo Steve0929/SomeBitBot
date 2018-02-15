@@ -43,9 +43,8 @@ var textapi = new AYLIENTextAPI({
 });
 ``` 
 
-
-
 ### The bot in action
+The bot will post each hour a tweet providing information about the air quality and the average temperatue of 5 locations (Usaquén, Guaymaral, Suba, Las Ferias, Puente Aranda) in Bogota city. Depending on the Air Quality Index the tweet will display a message indicating if the air quality is satisfactory, moderate or bad.
 
  
 ### Follow: @SomeBitBot
