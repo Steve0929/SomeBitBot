@@ -33,7 +33,7 @@ var T = new Twit({
   consumer_secret:      'your_consumer_secret',
   access_token:         'your_access_token',
   access_token_secret:  'your_ access_token_secret',
-})
+});
 ``` 
 Aylien API credentials
 ```sh
