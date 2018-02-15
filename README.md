@@ -24,6 +24,25 @@ Install the dependencies and run bot.js
 $ npm install 
 $ node bot.js
 ``` 
+You may need to insert your own Twitter API and Aylien API credentials
+
+```sh
+var T = new Twit({
+  consumer_key:         'your_consumer_key',
+  consumer_secret:      'your_consumer_secret',
+  access_token:         'your_access_token',
+  access_token_secret:  'your_ access_token_secret',
+})
+``` 
+
+```sh
+var textapi = new AYLIENTextAPI({
+  application_id: "your_application_id",
+  application_key: "your_application_key"
+});
+``` 
+
+
 
 ### The bot in action
 
