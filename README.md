@@ -4,9 +4,9 @@
 
 [![](https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg)](https://twitter.com/SomeBitBot)
 
-[![掘金翻译计划](https://rawgit.com/aleen42/badges/master/src/juejin_translation.svg)](https://github.com/xitu/gold-miner/)
-[![](https://img.shields.io/badge/weibo-%E6%8E%98%E9%87%91%E7%BF%BB%E8%AF%91%E8%AE%A1%E5%88%92-brightgreen.svg)](http://weibo.com/juejinfanyi)
-[![](https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E%E4%B8%93%E6%A0%8F-%E6%8E%98%E9%87%91%E7%BF%BB%E8%AF%91%E8%AE%A1%E5%88%92-blue.svg)](https://zhuanlan.zhihu.com/juejinfanyi)
+[![](https://img.shields.io/badge/created-October%202017-80aaff.svg)](https://github.com/xitu/gold-miner/)
+[![](https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg)](https://twitter.com/SomeBitBot)
+
 # SomeBitBot
 A twitter Bot using node.js and the Twit package.
 It uses Waqi API for posting each hour a tweet providing information about the air quality in Bogota city. 
