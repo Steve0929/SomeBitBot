@@ -43,11 +43,11 @@ var textapi = new AYLIENTextAPI({
 ``` 
 
 ### The bot in action
-* Air quality in the city
+## Air quality in the city
 The bot will post each hour a tweet providing information about the air quality and the average temperatue of 5 locations (Usaquén, Guaymaral, Suba, Las Ferias, Puente Aranda) in Bogota city. Depending on the Air Quality Index the tweet will display a message indicating if the air quality is: satisfactory 🍃, moderate ⚠️ or bad ⛔️. 
-* Please note that sometimes Twitter will prevend the bot from tweeting if the information of the post has already been tweeted. 
+* Please note that sometimes Twitter will prevend the bot from tweeting if the information of the post has already been tweeted in the past. 
 
-* Natural Language Processing and tweeting a response based on sentiment
+## Natural Language Processing and tweeting a response based on sentiment
 
  
 ### Follow: @SomeBitBot
