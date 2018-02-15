@@ -1,9 +1,5 @@
 <img src="https://img.shields.io/badge/created-October%202017-80aaff.svg">
-[![](https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg)]
-<img src="https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg">
-
-
-[![](https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg)](https://zhuanlan.zhihu.com/juejinfanyi)
+[![](https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg)](https://twitter.com/SomeBitBot)
 
 # SomeBitBot
 A twitter Bot using node.js and the Twit package.
