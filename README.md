@@ -48,12 +48,18 @@ The bot will post each hour a tweet providing information about the air quality 
 * Please note that sometimes Twitter will prevend the bot from tweeting if the information of the post has already been tweeted in the past. 
 
 ### Natural Language Processing and tweeting a response based on sentiment
-
- 
-### Follow: @SomeBitBot
 When someone in a tweet mentions @SomeBitBot, it will take the information from that tweet and use the Aylien text analysis API to determine the sentiment expressed in the tweet. The response from the Aylien API can be: "positive", "neutral" or "negative". Based on this the bot will tweet back a reply.
 
-
+Tweet
+```sh
+@SomeBitBot This was such a great day!!
+``` 
+Response
+```sh
+¡Hi @Esteban2606! My opinion: This seems to be a positive charged tweet :)
+``` 
+ 
+### Follow: @SomeBitBot
 
 OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department of State from the U.S. Embassy in Bogotá.
 * Update: The usage of OpenAQ API has been replaced with the Waqi API which provides more detailed air information in a certain location.
