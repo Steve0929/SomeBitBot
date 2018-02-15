@@ -24,7 +24,7 @@ Install the dependencies and run bot.js
 $ npm install 
 $ node bot.js
 ``` 
-You may need to insert your own API credentials.
+Note that you may need to insert your own API credentials.
 
 Twitter API
 ```sh
