@@ -50,6 +50,7 @@ The bot will post each hour a tweet providing information about the air quality 
 ### Natural Language Processing and tweeting a response based on sentiment
 When someone in a tweet mentions @SomeBitBot, it will take the information from that tweet and use the Aylien text analysis API to determine the sentiment expressed in the tweet. The response from the Aylien API can be: "positive", "neutral" or "negative". Based on this the bot will tweet back a reply.
 
+# Positve sentiment:
 Tweet
 ```sh
 @SomeBitBot This was such a great day!!
@@ -57,6 +58,24 @@ Tweet
 Response
 ```sh
 ¡Hi @Esteban2606! My opinion: This seems to be a positive charged tweet :)
+``` 
+# Neutral sentiment:
+Tweet
+```sh
+@SomeBitBot I was just walking by the streets.
+``` 
+Response
+```sh
+¡Hi @Esteban2606! My opinion: This seems to be a neutral tweet.
+``` 
+# Negative sentiment:
+Tweet
+```sh
+@SomeBitBot So I have been stuck in traffic for 2 hours.
+``` 
+Response
+```sh
+¡Hi @Esteban2606! My opinion: This seems to be a negative tweet :(
 ``` 
  
 ### Follow: @SomeBitBot
