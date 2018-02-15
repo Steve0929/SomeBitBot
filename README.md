@@ -53,7 +53,7 @@ The bot will post each hour a tweet providing information about the air quality 
 
 
 OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department of State from the U.S. Embassy in Bogotá.
-*Update: The usage of OpenAQ API has been replaced with the Waqi API which provides more detailed air information by a certain location.
+* Update: The usage of OpenAQ API has been replaced with the Waqi API which provides more detailed air information in a certain location.
 
 
 [node.js]: <http://nodejs.org>
