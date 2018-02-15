@@ -17,11 +17,11 @@ OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department 
 ### Installation
 
 SomeBitBot requires [Node.js](https://nodejs.org/) v4+ to run.
-Install the dependencies and run fruit.js
+Install the dependencies and run bot.js
 
 ```sh
 $ npm install 
-$ node fruit.js
+$ node bot.js
 ``` 
  
  
