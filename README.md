@@ -51,6 +51,8 @@ The bot will post each hour a tweet providing information about the air quality 
 
  
 ### Follow: @SomeBitBot
+When someone in a tweet mentions @SomeBitBot, it will take the information from that tweet and use the Aylien text analysis API to determine the sentiment expressed in the tweet. The response from the Aylien API can be: "positive", "neutral" or "negative". Based on this the bot will tweet back a reply.
+
 
 
 OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department of State from the U.S. Embassy in Bogotá.
