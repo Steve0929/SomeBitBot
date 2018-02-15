@@ -7,4 +7,32 @@ You can mention @SomeBitBot on your tweet and it will give an opinion: Positive,
 
 OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department of State from the U.S. Embassy in Bogotá.
  
-Follow: @SomeBitBot
+### Tech
+
+* [socket.io] - Enables real-time bidirectional event-based communication
+* [node.js] - Backend Server.
+* [Express] - node.js network app framework.
+
+ 
+### Installation
+
+SomeBitBot requires [Node.js](https://nodejs.org/) v4+ to run.
+Install the dependencies and run fruit.js
+
+```sh
+$ npm install 
+$ node fruit.js
+``` 
+ 
+ 
+### Follow: @SomeBitBot
+
+
+
+
+[node.js]: <http://nodejs.org>
+[Bootstrap]: <http://twitter.github.com/bootstrap/>
+[jQuery]: <http://jquery.com>
+[express]: <http://expressjs.com>
+[socket.io]: <https://socket.io>
+[request]: <https://github.com/request/request>
