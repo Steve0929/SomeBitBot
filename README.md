@@ -1,5 +1,5 @@
 <img src="https://img.shields.io/badge/created-October%202017-80aaff.svg">
-[![](https://img.shields.io/badge/created-October%202017-80aaff.svg)](https://twitter.com/SomeBitBot)
+[![](https://img.shields.io/badge/created-October%202017-80aaff.svg)](https://twitter.com/SomeBitBota)
 [![](https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg)](https://twitter.com/SomeBitBot)
 
 # SomeBitBot
