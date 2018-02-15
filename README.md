@@ -1,4 +1,6 @@
-<img src="https://img.shields.io/badge/created-October%202017-80aaff.svg"><img src="https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg">
+<img src="https://img.shields.io/badge/created-October%202017-80aaff.svg">
+[![](https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg)]
+<img src="https://img.shields.io/badge/Bot%20Status-online-brightgreen.svg">
 # SomeBitBot
 A twitter Bot using node.js and the Twit package.
 It uses Waqi API for posting each hour a tweet providing information about the air quality in Bogota city. 
