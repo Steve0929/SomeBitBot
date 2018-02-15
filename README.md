@@ -8,10 +8,11 @@ You can mention @SomeBitBot on your tweet and it will give an opinion: Positive,
 OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department of State from the U.S. Embassy in Bogotá.
  
 ### Tech
-
-* [socket.io] - Enables real-time bidirectional event-based communication
+* [Aylien] - Natural Language Processing API.
+* [Twitter API] - For making requests and responses. 
 * [node.js] - Backend Server.
 * [Express] - node.js network app framework.
+* [Request] - Used to make http/https calls.
 
  
 ### Installation
@@ -23,7 +24,9 @@ Install the dependencies and run bot.js
 $ npm install 
 $ node bot.js
 ``` 
- 
+
+### The bot in action
+
  
 ### Follow: @SomeBitBot
 
@@ -31,8 +34,9 @@ $ node bot.js
 
 
 [node.js]: <http://nodejs.org>
-[Bootstrap]: <http://twitter.github.com/bootstrap/>
+[Twitter API]: <https://developer.twitter.com/>
 [jQuery]: <http://jquery.com>
 [express]: <http://expressjs.com>
 [socket.io]: <https://socket.io>
 [request]: <https://github.com/request/request>
+[Aylien]: <https://aylien.com/text-api/>
