@@ -4,8 +4,6 @@ It uses Waqi API for posting each hour a tweet providing information about the a
 It makes use of the Aylien Text Analysis API to express an opinion based on the text of a tweet.
 You can mention @SomeBitBot on your tweet and it will give an opinion: Positive, neutral or negative.
 
-
-OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department of State from the U.S. Embassy in Bogotá.
  
 ### Tech
 * [Waqi] - Waqi API to get Air Quality Index information.
@@ -54,6 +52,8 @@ The bot will post each hour a tweet providing information about the air quality 
 ### Follow: @SomeBitBot
 
 
+OpenAQ API: https://docs.openaq.org/ Using data provided by the U.S. Department of State from the U.S. Embassy in Bogotá.
+*Update: The usage of OpenAQ API has been replaced with the Waqi API which provides more detailed air information by a certain location.
 
 
 [node.js]: <http://nodejs.org>
