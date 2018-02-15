@@ -68,7 +68,7 @@ Response
 ```sh
 ¡Hi @Esteban2606! My opinion: This seems to be a neutral tweet.
 ``` 
-#### Negative sentiment:
+### Negative sentiment:
 Tweet
 ```sh
 @SomeBitBot So I have been stuck in traffic for 2 hours.
