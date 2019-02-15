@@ -13,7 +13,7 @@ var T = new Twit({
   access_token_secret:  'nM08vjidNezjX1mVVcuyznrsdGAIqmtSR6nbSqanpkjTZ',
 })
 
-var stream = T.stream('user');
+//var stream = T.stream('user');
 
 
 var AYLIENTextAPI = require('aylien_textapi');
@@ -26,7 +26,7 @@ var textapi = new AYLIENTextAPI({
 
 
 //Cuando alguien siga al bot
-stream.on('follow', twitGracias);
+//stream.on('follow', twitGracias);
 
 //Cuando alguien siga al bot
 function twitGracias(eventMsg){
@@ -48,7 +48,7 @@ function twitGracias(eventMsg){
 
 
 //Cuando alguien RESPONDA al bot
-stream.on('tweet', twitRespuesta);
+//stream.on('tweet', twitRespuesta);
 function twitRespuesta(eventMsg){
   var nombre = eventMsg.source.name;
   var screenName = eventMsg.source.screen_name;
