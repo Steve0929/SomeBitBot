@@ -219,7 +219,7 @@ var twitiar = {
 if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
             console.log(twitiar);
             T.post('statuses/update', twitiar);
-            setTimeout(airGuaymaral,60000*2);
+            setTimeout(airSuba,60000*2);
                       }
 
                   }
