@@ -1,3 +1,4 @@
+//https://api.waqi.info/search/?token=5048f02cae0ff2a686c48322d1e4f364e43e3f7a&keyword=Colombia
 console.log("El bot ha iniciado");
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
