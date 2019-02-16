@@ -528,7 +528,7 @@ var request = require('request');
 var estado;
 var aqi;
 var temperatura;
-city = arr[5];
+city = arr[6];
 ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
   request({
           url: ourl,
