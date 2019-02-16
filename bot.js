@@ -568,7 +568,64 @@ var twitiar = {
 if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
             console.log(twitiar);
             T.post('statuses/update', twitiar);
+            setTimeout(airFontibon,60000*2);
+                      }
 
+                  }
+
+}
+
+function airFontibon(){
+
+var token = "5048f02cae0ff2a686c48322d1e4f364e43e3f7a";
+var city;
+var ourl;
+var temps= [];
+var request = require('request');
+var estado;
+var aqi;
+var temperatura;
+city = '@6232';
+ourl= "https://api.waqi.info/feed/"+city+"/?token="+token;
+  request({
+          url: ourl,
+          json: true
+          },(error, response, body)=>
+          {
+          console.log(body);
+          aqi = body.data.aqi;
+          temperatura = body.data.iaqi.t.v;
+          ala();
+          //temps[i] = body.data.iaqi.t.v;
+
+          //console.log("AQI: "+aqis)
+          //console.log("AQI: "+body.data.aqi);
+          //console.log("Temperatura: "+body.data.iaqi.t.v);
+          });
+
+function ala(){
+if(aqi<=50){
+  estado= "Satisfactorio, sin riesgos. 🍃";
+           }
+
+else if(aqi>50 && aqi<100){
+        estado= "Polución moderada. ⚠️" ;
+        }
+
+else if(aqi>=100){
+        estado = "Peligroso para la salud. ⛔️";
+        }
+
+var twitiar = {
+              status:"El Índice de calidad del aire en Fontibon, Bogota es de: " +aqi+
+              ", la temperatura promedio es de: "+temperatura+
+               "°C. Estado: "+ estado
+                }
+
+if(aqi >= 0){ //No tweet en caso de que exista un aqi negativo (bug -999)
+            console.log(twitiar);
+            T.post('statuses/update', twitiar);
+            //setTimeout(airsmth,60000*2);
                       }
 
                   }
