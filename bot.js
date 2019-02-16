@@ -1,3 +1,4 @@
+//¡Hi i'm a bot! Mention me on your tweet and i will express my opinion: Positive, neutral or negative. Mencióname y te daré mi opinión acerca de tu tweet.
 console.log("El bot ha iniciado");
 //process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
