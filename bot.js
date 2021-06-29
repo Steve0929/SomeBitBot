@@ -7,15 +7,6 @@ var aqis= [];
 
 var Twit = require('twit');
 
-/*
-var T = new Twit({
-  consumer_key:         'O4wETrfULyGSHsdpfbjDYTGyX',
-  consumer_secret:      'PkhUZqO7oBqjgLpbjlSFaVIFmIWhQvx8AkimQNrIgvmnFZVdXD',
-  access_token:         '914990232822575104-JGhiqigWQVbnMezPQzFgp0G9JnGFYNU',
-  access_token_secret:  'nM08vjidNezjX1mVVcuyznrsdGAIqmtSR6nbSqanpkjTZ',
-})
-*/
-
 var T = new Twit({
   consumer_key:         'your_consumer_key',
   consumer_secret:      'your_consumer_secret',
